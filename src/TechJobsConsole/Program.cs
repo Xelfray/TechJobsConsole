@@ -130,6 +130,10 @@ namespace TechJobsConsole
                 }
             }
             Console.WriteLine("****************\nSearch results: {0}", count);
+            if (count==0)
+            {
+                Console.WriteLine("No matches in the search, try something different.");
+            }
         }
     }
 }
