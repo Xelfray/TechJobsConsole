@@ -68,16 +68,19 @@ namespace TechJobsConsole
             List<Dictionary<string, string>> searchJobs = new List<Dictionary<string, string>>();            
             foreach (Dictionary<string, string> row in AllJobs)
             {
+                bool searchBool = false;
                 foreach (KeyValuePair<string, string> each in row) 
-                {
-                    
+                {                    
                     string aValue = each.Value;
                     if (aValue.IndexOf(value, StringComparison.OrdinalIgnoreCase) >=0)
                     {                        
-                        searchJobs.Add(row);
-                        continue;
+                        searchBool=true;                        
                     }
-                }                
+                }
+                if (searchBool)
+                {
+                    searchJobs.Add(row);
+                }
             }            
             return searchJobs;
         }
